@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './components/home/Home';
+import Join from './components/auth/join/JoinPage';
+import LoginPage from './components/auth/login/LoginPage';
+import styles from './App.module.scss';
+import className from 'classnames/bind';
+import Header from './components/header/Header';
+import MakeRoomPage from './components/room/setting/MakeRoomPage';
+import JoinRoom from './components/room/join/JoinRoom';
+import MainRoom from './components/room/mainRoom/MainRoom';
+
+const cx = className.bind(styles);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={cx('container')}>
+        <Header />
+        <div>
+          <Route path="/login" component={LoginPage} />
+          <Route path="/join" render={() => <Join from="/" />} />
+          <Route path="/makeRoom" component={MakeRoomPage} />
+          <Route path="/joinRoom/:enterId" component={JoinRoom} />
+          <Route path="/room/:roomId" component={MainRoom} />
+          <Route exact path="/" component={Home} />
+        </div>
+      </div>
+    </Router>
   );
 }
 
