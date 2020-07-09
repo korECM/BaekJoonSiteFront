@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useCallback } from 'react';
 import { RootState } from '../modules';
-import { changeInput, makeRoomThunk, setErrorMessage, reset } from '../modules/makeRoom';
+import { changeInput, makeRoomThunk, setErrorMessage } from '../modules/makeRoom';
 
 export default function useMakeRoom() {
   const { form, errorMessage, loading, roomLink } = useSelector((state: RootState) => state.makeRoom);

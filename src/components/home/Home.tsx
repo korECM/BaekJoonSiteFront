@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useHome from '../../hooks/useHome';
 import styled from 'styled-components';
+import Loading from '../common/Loading';
 
 const RoomBlock = styled.div`
   background-color: white;
@@ -36,6 +37,13 @@ const HomeContainer = styled.div`
   grid-row-gap: 5rem;
 `;
 
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20%;
+`;
+
 function Home() {
   const { error, getRoomsRequest, rooms, loading, resetRoomsRequest } = useHome();
 
@@ -44,7 +52,19 @@ function Home() {
     return () => {
       resetRoomsRequest();
     };
-  }, [getRoomsRequest]);
+  }, [getRoomsRequest, resetRoomsRequest]);
+
+  if (error) {
+    return <div>Error</div>;
+  }
+
+  if (loading) {
+    return (
+      <LoadingContainer>
+        <Loading color="#0198e1" type="spin" size="5%" />
+      </LoadingContainer>
+    );
+  }
 
   return (
     <HomeContainer>

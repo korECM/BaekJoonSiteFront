@@ -1,6 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { property } from 'lodash';
+import styled from 'styled-components';
 
 const TextSectionBlock = styled.div`
   background-color: white;

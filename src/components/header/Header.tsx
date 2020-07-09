@@ -44,7 +44,7 @@ function Header({ history }: RouteComponentProps) {
   return (
     <div className={cx('header')}>
       <Link to="/">
-        <span>{'BaekJoon' + `${roomTitle && ` - ${roomTitle}`}`}</span>
+        <span>{`BaekJoon${roomTitle && ` - ${roomTitle}`}`}</span>
       </Link>
       <ul className={cx('user')}>
         <li>

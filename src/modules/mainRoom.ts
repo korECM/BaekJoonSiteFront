@@ -80,7 +80,7 @@ export function makeRoomThunk(roomId: string): ThunkAction<void, MainRoomState, 
 export function deleteRoomThunk(roomId: string): ThunkAction<void, MainRoomState, null, MainRoomAction> {
   return async (dispatch) => {
     try {
-      const response = await deleteRoomAPI(roomId);
+      await deleteRoomAPI(roomId);
       dispatch(deleteRoom());
     } catch (error) {
       console.error(error);

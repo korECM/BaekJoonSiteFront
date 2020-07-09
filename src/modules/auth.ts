@@ -51,7 +51,7 @@ export function registerThunk(user: RegisterInterface): ThunkAction<void, AuthSt
     dispatch(register());
     try {
       const { name, email, password } = user;
-      const response = await userRegister({
+      await userRegister({
         email,
         name,
         password,

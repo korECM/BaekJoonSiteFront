@@ -66,7 +66,7 @@ function MainRoom({ history, match }: RouteComponentProps) {
     return () => {
       resetDatas();
     };
-  }, [history, match.params]);
+  }, [history, match.params, resetDatas, resetMakeRoom, getRoomInfo]);
 
   if (isDeleted) {
     history.push('/');

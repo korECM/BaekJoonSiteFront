@@ -123,7 +123,7 @@ function RoomForm({ history }: RoomFormProps) {
 
     setErrorMessage('');
     setSubmitDisabled(false);
-  }, [form]);
+  }, [form, setErrorMessage]);
 
   if (roomLink) {
     history.push(roomLink);
